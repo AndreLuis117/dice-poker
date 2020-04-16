@@ -1,0 +1,13 @@
+C:\src\dice-poker\bin\Debug\netcoreapp3.1\dice-poker.exe
+C:\src\dice-poker\bin\Debug\netcoreapp3.1\dice-poker.deps.json
+C:\src\dice-poker\bin\Debug\netcoreapp3.1\dice-poker.runtimeconfig.json
+C:\src\dice-poker\bin\Debug\netcoreapp3.1\dice-poker.runtimeconfig.dev.json
+C:\src\dice-poker\bin\Debug\netcoreapp3.1\dice-poker.dll
+C:\src\dice-poker\bin\Debug\netcoreapp3.1\dice-poker.pdb
+C:\src\dice-poker\obj\Debug\netcoreapp3.1\dice-poker.csprojAssemblyReference.cache
+C:\src\dice-poker\obj\Debug\netcoreapp3.1\dice-poker.csproj.CoreCompileInputs.cache
+C:\src\dice-poker\obj\Debug\netcoreapp3.1\dice-poker.AssemblyInfoInputs.cache
+C:\src\dice-poker\obj\Debug\netcoreapp3.1\dice-poker.AssemblyInfo.cs
+C:\src\dice-poker\obj\Debug\netcoreapp3.1\dice-poker.dll
+C:\src\dice-poker\obj\Debug\netcoreapp3.1\dice-poker.pdb
+C:\src\dice-poker\obj\Debug\netcoreapp3.1\dice-poker.genruntimeconfig.cache
