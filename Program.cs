@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using dice_poker.Model;
+using dice_poker.Classes;
 
 namespace dice_poker
 {
@@ -8,47 +8,89 @@ namespace dice_poker
     {
         static void Main(string[] args)
         {
-            List<Dice> playerDices = new List<Dice>();
-            List<Dice> botDices = new List<Dice>();
+            Dice diceObj = new Dice();
+            string result = "";
+
+            var playerDices = diceObj.CreateSetOfDices();
+            var botDices = diceObj.CreateSetOfDices();
 
             bool gamerOver = false;
             while (true)
             {
-                Console.WriteLine("Bem vindo ao game DICE POKER!");
+                Console.WriteLine(Printer.PrintWelcomeMessage());
 
-                Console.WriteLine("Digite 1 para começar a jogar...");
-
-                var result = Console.ReadLine();
-
-                if (result.Trim() == "1")
+                
+                while(result != "1")
                 {
-                    while (gamerOver == false)
-                    {
-                        if(Tools.IsPlayerGoingStart()){
-                            Tools.PrintPlayerThrowDicesMessage();
-                            result = Console.ReadLine();
+                    Console.WriteLine(Printer.PrintStarGameMessage());
+                    result = Console.ReadLine().Trim();
+                }
+                result = "";
 
-                            while(result != "1"){
-                                Tools.PrintPlayerThrowDicesMessage();
-                                result = Console.ReadLine();
+                while (gamerOver == false)
+                {
+                    if(Tools.IsPlayerGoingStart())
+                    {
+                        //Jogador começa
+
+                        Printer.PrintPlayerThrowDicesMessage();
+                        result = Console.ReadLine();
+
+                        while(result != "1")
+                        {
+                            Console.WriteLine(Printer.PrintPlayerThrowDicesMessage());
+                            result = Console.ReadLine().Trim();
+                        }
+                        result = "";
+
+                        //Jogador lança os dados
+                        playerDices = diceObj.ThrowDices(playerDices); 
+
+                        Console.WriteLine(Printer.PrintPlayerDicesRevealMessage()); 
+                        Console.WriteLine(Printer.PrintDices(playerDices));
+                            
+                        //Bot lança os dados   
+                        botDices = diceObj.ThrowDices(botDices);
+
+                        Console.WriteLine(Printer.PrintBotDicesRevealMessage()); 
+                        Console.WriteLine(Printer.PrintDices(botDices));  
+                        
+                        while(result != "1" || result != "2")
+                        {
+                            Console.WriteLine(Printer.PrintPlayerRethrowDicesDecisionMessage());
+                            result = Console.ReadLine().Trim();
+                        }
+
+                        if(result == "1")
+                        {
+                            result = "";
+
+                            while(string.IsNullOrEmpty(result))
+                            {
+                                Console.WriteLine(Printer.PrintRethrowDicesMessage());
+                                result = Console.ReadLine().Trim();
                             }
 
-                            playerDices = Tools.ThrowDices(playerDices);  
-                            Console.WriteLine(Tools.PrintDices(playerDices));
-                            
-                            
+                            playerDices = diceObj.RethrowDices(playerDices, result);
 
-                            botDices = Tools.ThrowDices(botDices);   
-                        }else
-                        {
-                            botDices = Tools.ThrowDices(botDices);
-                            Console.WriteLine(Tools.PrintDices(botDices));
-
-                            playerDices = Tools.ThrowDices(playerDices);
+                            Console.WriteLine(Printer.PrintPlayerDicesRevealMessage()); 
+                            Console.WriteLine(Printer.PrintDices(playerDices));
 
                         }
                     }
+                    else
+                    {
+                        //Bot começa 
+
+                        botDices = diceObj.ThrowDices(botDices);
+                        Console.WriteLine(Printer.PrintDices(botDices));
+
+
+                        playerDices = diceObj.ThrowDices(playerDices);
+
+                    }
                 }
+                
                 
             }
         }
