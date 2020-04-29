@@ -39,7 +39,7 @@ namespace dice_poker.Classes
 
             foreach (var index in listOfPlayerChoices)
             {
-                dices[Convert.ToInt32(index)] = ThrowSingleDice(new Dice());
+                dices[Convert.ToInt32(index)-1] = ThrowSingleDice(new Dice());
             }
 
             return dices;

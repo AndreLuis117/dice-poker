@@ -27,8 +27,8 @@ namespace dice_poker.Classes
             return "\nDigite quais dados deseja relançar. \n"
                     + "Instruções: \n"
                     + "- Para relançar digite o indice dos dados que deseja relançar \n" 
-                    + "- (Indice 0 - 1 - 2 - 3 - 4 - 5) cada número do indice se refere a um dado da esquerda para direta \n"  
-                    + "- Para selecionar mais que um dado utilize vírgulas como separadores Ex: 1,4,5";
+                    + "- (Indice 1 - 2 - 3 - 4 - 5) cada número do indice se refere a um dado da esquerda para direta \n"  
+                    + "- Para selecionar mais que um dado utilize vírgulas sem espaço como separadores Ex: 1,4,5";
         }
 
         public static string PrintPlayerRethrowDicesDecisionMessage(){
