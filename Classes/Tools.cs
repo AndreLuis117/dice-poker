@@ -17,5 +17,11 @@ namespace dice_poker.Classes
             }
         }
 
+        public static ResultCombinationEnum GetResultCombination(List<Dice> dices)
+        {
+            
+            return null;
+        }
+
     }
 }
