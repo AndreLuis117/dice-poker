@@ -72,6 +72,8 @@ namespace dice_poker.Classes
                         Console.WriteLine(Printer.PrintDices(playerDices));
 
                     }
+
+                    var playerResult = Tools.GetResultCombination(playerDices);
                 }
             }
         }
