@@ -155,5 +155,50 @@ namespace dice_poker.Classes
             return diceRepetition;
         }
 
+        public static DiceResultEnum GetResultOfRound(ResultCombinationEnum playerResult, ResultCombinationEnum botResult){
+            
+            if(playerResult.Id > botResult.Id)
+                return DiceResultEnum.PlayerWin;
+            
+            if(botResult.Id > playerResult.Id)
+                return DiceResultEnum.BotWin;
+
+            return DiceResultEnum.Tie;
+        }
+
+        public static DiceResultEnum GetResultOfGame(List<DiceResultEnum> rounds){
+
+            int playerWins = 0;
+            int botWins = 0;
+            int ties = 0;
+
+
+            foreach (var round in rounds)
+            {
+                if (round.Id == 1)
+                    playerWins += 1;
+                
+                if (round.Id == 2)
+                    botWins += 1;
+
+                if (round.Id == 3)
+                    ties += 1;
+            }
+            
+            if(playerWins > botWins)
+            {
+                return DiceResultEnum.PlayerWin;
+            }else if(botWins > playerWins)
+            {
+                return DiceResultEnum.BotWin;
+            }else if(ties > 0)
+            {
+                return DiceResultEnum.Tie;
+            }
+
+
+           return DiceResultEnum.Tie; 
+        }
+
     }
 }

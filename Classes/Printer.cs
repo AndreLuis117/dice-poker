@@ -54,5 +54,25 @@ namespace dice_poker.Classes
         public static string PrintBotDicesRevealMessage(){
             return "\nDados adversário: ";
         }
+
+        public static string PrintBotRetrowDicesMessage(){
+            return "\nAdversário irá jogar os dados escolhidos novamente: ";
+        }
+
+        public static string PrintBotRoundVictory(){
+            return "\nAdversário venceu o round!";
+        }
+
+        public static string PrintPlayerRoundVictory(){
+            return "\nVocê venceu o round!";
+        }
+
+        public static string PrintRoundTie(){
+            return "\nO round acabou em empate!";
+        }
+
+        public static string PrintNewRoundMessage(){
+            return "\nUm novo Round irá começar!";
+        }
     }
 }
